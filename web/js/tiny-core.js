@@ -9,6 +9,16 @@
   };
   T.$ = function (id) { return document.getElementById(id); };
 
+  /* "My links (n)" in the top bar, only when this browser has made links (they live in localStorage "tiny-mine") */
+  T.mineNav = function () {
+    var a = document.querySelector("[data-mine-nav]"), n = 0;
+    try { n = JSON.parse(localStorage.getItem("tiny-mine") || "[]").filter(function (x) { return x.mode === "inuse" || x.expires > Date.now() / 1000; }).length; } catch (e) { n = 0; }
+    if (!a) return;
+    a.hidden = !n;
+    a.textContent = "My links (" + n + ")";
+  };
+  document.addEventListener("DOMContentLoaded", T.mineNav);
+
   T.api = function (method, path, body, headers) {
     var h = { "Accept": "application/json" };
     if (body !== undefined) h["Content-Type"] = "application/json";

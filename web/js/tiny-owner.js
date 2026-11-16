@@ -56,7 +56,7 @@
     $("t-iown").hidden = true;
     var f = link.features || {}, now = Date.now() / 1000;
     box.hidden = false;
-    box.innerHTML = '<p class="t-owner-h"><b>🔑 You own this link</b> <span class="muted">(this browser has its owner key)</span></p><div class="t-item-btns">' +
+    box.innerHTML = '<p class="t-private">🔒 Only you can see this</p><p class="t-owner-h"><b>🔑 You own this link</b> <span class="muted">(this browser has its owner key)</span></p><div class="t-item-btns">' +
       (link.page ? '<button class="btn" type="button" data-own="edit">Edit page</button>' : "") +
       ((f.stats || 0) > now ? '<button class="btn" type="button" data-own="stats">Visits</button>' : "") +
       '<button class="btn" type="button" data-own="card">Download owner card</button><button class="btn" type="button" data-own="rekey">New owner key</button>' +

@@ -252,6 +252,8 @@ html[data-site="tiny"][data-theme="dark"] { --ok: #6fdcaa; --warn: #f5c967; --pi
 .t-coin-item { display: flex; gap: 10px; align-items: center; color: var(--muted); font-size: 15px; }
 .t-coin-item b { color: var(--cream); }
 .t-story .t-source { margin-top: 12px; }
+.t-private { margin: 0 0 6px; font-size: 12.5px; font-weight: 800; letter-spacing: .04em; text-transform: uppercase; color: var(--pink); }
+.site-nav [data-mine-nav][hidden] { display: none !important; }
 
 /* ---------- Day / night (theme.py) ---------- */
 html[data-site="tiny"][data-theme="dark"] { color-scheme: dark;

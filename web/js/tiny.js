@@ -121,6 +121,7 @@
   function render() {
     var now = Date.now() / 1000, list = mine().filter(function (x) { return x.mode === "inuse" || x.expires > now; });
     save(list);
+    if (T.mineNav) T.mineNav();
     $("t-mine-sec").hidden = !list.length;
     $("t-mine").innerHTML = list.map(function (x) {
       return '<li><span><a href="/' + T.esc(x.code) + '">tiny.gmcat.io/' + T.esc(x.code) + "</a> <small>" + T.esc(T.COINS[x.coin] ? T.COINS[x.coin].name : x.coin) + " · " +
