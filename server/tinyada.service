@@ -1,0 +1,23 @@
+[Unit]
+Description=GmCat TinyADA (crypto address short links at tiny.gmcat.io)
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/python3 /opt/gmcat-tinyada/server.py
+Environment=TINY_DATA=/var/lib/gmcat-tinyada
+Environment=TINY_PORT=4199
+Environment=TINY_LINK_BASE=https://tiny.gmcat.io/
+# Plus plumbing, added later (connect-tiny-plus.sh): TINY_CONNECT_FILE=/etc/gmcat-tinyada/connect.json, TINY_GMGM_SECRET (drop-in)
+# Admin key: only its SHA-256, in the root-only drop-in gmcat-tinyada.service.d/admin.conf (TINY_ADMIN_KEY_SHA256)
+User=www-data
+Group=www-data
+Restart=on-failure
+MemoryMax=96M
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+PrivateTmp=true
+ReadWritePaths=/var/lib/gmcat-tinyada
+
+[Install]
+WantedBy=multi-user.target
