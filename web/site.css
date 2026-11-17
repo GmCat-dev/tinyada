@@ -255,6 +255,15 @@ html[data-site="tiny"][data-theme="dark"] { --ok: #6fdcaa; --warn: #f5c967; --pi
 .t-private { margin: 0 0 6px; font-size: 12.5px; font-weight: 800; letter-spacing: .04em; text-transform: uppercase; color: var(--pink); }
 .site-nav [data-mine-nav][hidden] { display: none !important; }
 
+/* Easter egg: the little red CoinToolbox toolbox in the story card's corner (links to tools.gmcat.io/since-2013/) */
+.t-story { position: relative; }
+.t-egg { position: absolute; top: 14px; right: 16px; display: block; line-height: 0; opacity: .55; filter: grayscale(.35);
+  transition: opacity .2s, filter .2s, transform .2s; }
+.t-egg:hover, .t-egg:focus-visible { opacity: 1; filter: none; transform: rotate(-8deg) scale(1.15); }
+.t-egg:focus-visible { outline: 2px solid var(--orange, #e8743b); outline-offset: 4px; border-radius: 4px; }
+.t-story h2 { padding-right: 44px; }
+@media (prefers-reduced-motion: reduce) { .t-egg { transition: none; } .t-egg:hover, .t-egg:focus-visible { transform: none; } }
+
 /* ---------- Day / night (theme.py) ---------- */
 html[data-site="tiny"][data-theme="dark"] { color-scheme: dark;
   --bg: #17131d; --panel: #221c2b; --panel2: #2a2235; --line: #372e44; --cream: #efeaf6; --muted: #aaa0bb; --soft: #8b819c;
